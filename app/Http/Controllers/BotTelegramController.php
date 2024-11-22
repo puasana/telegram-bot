@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Telegram\Bot\Laravel\Facades\Telegram;
 use Telegram\Bot\Api;
+use App\Services\ChatGPTService;
 
 class BotTelegramController extends Controller
 {
@@ -35,37 +36,5 @@ class BotTelegramController extends Controller
         $response = Telegram::setWebhook(['url' => env('TELEGRAM_WEBHOOK_URL')]);
         
         dd($response);
-    }
-
-    public function commandsHandler() 
-    {
-        $updates = Telegram::commandsHandler(true);
-        $chatId = $updates->getChat()->getId();
-        $username = $updates->getChat()->getFirstName();
-
-        // $response = $this->telegram->getMe();
-
-        // $botId = $response->getId();
-        // $firstName = $response->getFirstName();
-        // $username = $response->getUsername();
-
-        // if (strtolower($updates->getMessage()->getText() === 'halo')) {
-        //     return Telegram::sendMessage([
-        //         'chat_id' => $chatId,
-        //         'text' => 'Halo '. $username
-        //     ]);
-        // }
-
-        return Telegram::sendMessage([
-                    'chat_id' => $chatId,
-                    'text' => 'Halo '. $username
-                ]);
-
-        // $response = $telegram->sendMessage([
-        //     'chat_id' => 'CHAT_ID',
-        //     'text' => 'Hello World'
-        // ]);
-        
-        // $messageId = $response->getMessageId();
     }
 }

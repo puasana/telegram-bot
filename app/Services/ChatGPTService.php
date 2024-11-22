@@ -36,7 +36,7 @@ class ChatGPTService
                         'Content-Type' => 'application/json',
                     ],
                     'json' => [
-                        'model' => 'gpt-3.5-turbo-16k-0613', // Use the chat model you have access to
+                        'model' => 'gpt-4o-mini', // Use the chat model you have access to
                         'messages' => [
                             ['role' => 'system', 'content' => 'You are a helpful assistant.'],
                             ['role' => 'user', 'content' => $message],

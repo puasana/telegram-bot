@@ -19,5 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('setWebhook', [App\Http\Controllers\BotTelegramController::class, 'setWebhook']);
-Route::post('timohtech/webhook', [App\Http\Controllers\BotController::class, 'handle']);
-Route::post('test/webhook', [App\Http\Controllers\BotTestController::class, 'handle']);
+Route::post('webhook', [App\Http\Controllers\BotController::class, 'commandsHandler']);
+
